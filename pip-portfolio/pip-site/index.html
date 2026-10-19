@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pip · Junior Dream Engineer at the Midnight Nursery</title>
+<meta name="description" content="Pip is a skull-faced baby who builds the dreams you fall asleep inside. Tickle him, boop him, wind his music box.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf1df;--paper:#f8efdc;--ink:#5a4350;--blush:#ffc9d6;--lav:#cdbff0;--butter:#ffe29a;--glow:#ffd77a;--text:#5a4350;--link:#b8456f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.6 Nunito,system-ui,sans-serif;overflow-x:hidden;transition:background .6s,color .6s}
+body.night{--bg:#241d4a;--ink:#f6eefc;--text:#f6eefc;--blush:#7a4a78;--lav:#4a3d8f;--butter:#8a6d2e;--link:#ffb3d0}
+h1,h2,h3{font-family:Fredoka,system-ui,sans-serif;font-weight:600;line-height:1.1;margin:0 0 .4em}
+h1{font-size:clamp(2.6rem,9vw,5rem)}h2{font-size:clamp(1.8rem,5vw,2.6rem)}
+section{max-width:980px;margin:0 auto;padding:3.5rem 1.2rem}
+p{max-width:60ch;margin:0 0 1em}
+a{color:var(--link);font-weight:700}
+a:focus-visible,button:focus-visible,[role=button]:focus-visible{outline:3px solid #e0508a;outline-offset:3px}
+.strip{background:var(--lav);border-bottom:4px solid var(--ink);overflow:hidden;white-space:nowrap;font:600 .95rem Fredoka;padding:.3rem 0}
+.strip span{display:inline-block;padding-left:100%;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+nav{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;padding:.9rem}
+nav a,nav button{font:600 1rem Fredoka;text-decoration:none;color:var(--ink);background:var(--paper);border:3px solid var(--ink);border-radius:99px;padding:.3rem 1rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+nav a:active,nav button:active{transform:translate(3px,3px);box-shadow:none}
+body.night nav a,body.night nav button{background:#3a3170}
+.sticker{border:4px solid var(--ink);border-radius:30px;background:var(--paper);box-shadow:8px 8px 0 var(--blush);overflow:hidden}
+.sticker img{display:block;width:100%;height:auto}
+.hero{display:grid;gap:2rem;align-items:center;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
+@media(min-width:760px){.hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);text-align:left}}
+.pipwrap{position:relative;width:min(380px,86vw);animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.tilt{position:relative;cursor:pointer;transition:transform .15s;transform:perspective(800px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg))}
+.tilt svg{position:absolute;inset:0;width:100%;height:100%}
+.lash{fill:none;stroke:#6b4b4b;stroke-width:6;stroke-linecap:round;opacity:0;transition:opacity .5s}.asleep .lash{opacity:1}
+.lid{fill:#efe6dd;transform-box:fill-box;transform-origin:top;transform:scaleY(0);transition:transform .5s}
+body.night .lid{transform:scaleY(.5)}
+.asleep .lid{transform:scaleY(1)!important}
+#nose{position:absolute;left:48.5%;top:38%;width:7%;height:6%;border:0;background:transparent;border-radius:50%;cursor:pointer;padding:0}
+.bubble{position:absolute;top:-6px;right:-6px;background:#fff;color:#5a4350;border:3px solid #5a4350;font:600 1.1rem Fredoka;padding:.3rem .9rem;border-radius:18px 18px 18px 4px;opacity:0;transform:scale(.6);transition:.25s;pointer-events:none}
+.bubble.on{opacity:1;transform:none}
+.zzz{position:absolute;top:8%;left:6%;font:600 2rem Fredoka;opacity:0;pointer-events:none;color:var(--ink)}
+.asleep .zzz{opacity:1}
+.giggle .tilt{animation:shake .25s 4}
+@keyframes shake{25%{rotate:-2.5deg}75%{rotate:2.5deg}}
+.tag{font:600 clamp(1.1rem,3vw,1.4rem) Fredoka;color:var(--link)}
+.two{display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr)}
+@media(min-width:760px){.two{grid-template-columns:minmax(0,4fr) minmax(0,5fr);align-items:center}}
+.scene{display:grid;grid-template-columns:64px 1fr;gap:1rem;align-items:center;margin-bottom:1.4rem;opacity:.25;transform:translateX(-14px);transition:.6s}
+.scene.in{opacity:1;transform:none}.scene .ic{font-size:2.6rem;text-align:center}.scene h3{margin:0 0 .2em}.scene p{margin:0}
+.box{position:relative;cursor:pointer;border:0;padding:0;background:none;width:100%}
+.box.play img{animation:wig .6s infinite}
+@keyframes wig{25%{rotate:-1.5deg}75%{rotate:1.5deg}}
+.note{position:absolute;pointer-events:none;font-size:1.6rem;color:#d9a441;animation:up 1.4s forwards}
+@keyframes up{from{opacity:1}to{opacity:0;transform:translateY(-70px)}}
+.keys{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.keys button{width:44px;height:58px;border:3px solid var(--ink);border-radius:12px;background:var(--butter);color:var(--ink);font:600 1.2rem Fredoka;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+.keys button:active,.keys button.hit{transform:translateY(4px);box-shadow:none;background:var(--blush)}
+.btn{font:600 1.05rem Fredoka;background:var(--blush);color:var(--ink);border:3px solid var(--ink);border-radius:99px;padding:.45rem 1.3rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.lantern{position:relative;cursor:pointer;border:0;padding:0;background:none;width:100%}
+.lantern img{transition:filter .5s;filter:brightness(.82) saturate(.8)}
+.lantern.on img{filter:brightness(1.05) saturate(1.1) drop-shadow(0 0 28px var(--glow))}
+.sw{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.sw button{font:600 .95rem Fredoka;color:#5a4350;border:3px solid var(--ink);border-radius:99px;padding:.3rem .9rem;cursor:pointer}
+.sw button[aria-pressed=true]{box-shadow:0 0 0 3px var(--glow)}
+.wall{background:#f0e0ff;color:#4a3550;border:5px solid #cdb4f5;border-radius:26px;padding:1.4rem 1.4rem 1.4rem 4.2rem;position:relative}
+.wall::before{content:"";position:absolute;left:2.8rem;top:1rem;bottom:1rem;width:6px;border-radius:3px;background:repeating-linear-gradient(#ac86e8 0 2px,transparent 2px 14px)}
+.skill{margin:.9rem 0}.skill b{font-family:Fredoka;display:flex;justify-content:space-between}
+.bar{height:16px;background:#fff9;border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff9ec4,#ffc766);border-radius:9px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.letter{background:#fff8e8;color:#5a4350;border:4px solid var(--ink);border-radius:8px 30px 8px 30px;padding:2rem;transform:rotate(-1deg);box-shadow:8px 8px 0 var(--lav)}
+.letter a{color:#b8456f}
+footer{text-align:center;padding:2rem 1rem 4rem;font-size:.95rem}
+footer small{display:block;max-width:62ch;margin:1rem auto 0;opacity:.85}
+.odo{display:inline-flex;gap:3px;vertical-align:middle;margin-left:.4rem}.odo span{background:#241d4a;color:#ffd77a;font:600 1.1rem Fredoka;padding:.1rem .4rem;border-radius:5px;border:2px solid var(--ink)}
+.trail{position:fixed;pointer-events:none;z-index:9;font-size:16px;color:#e0a82e;animation:fall 1s forwards}
+@keyframes fall{to{transform:translateY(30px) scale(.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){.strip span{padding-left:1rem}*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.bar i{width:var(--w)!important}.scene{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="strip" aria-hidden="true"><span>&#9733; welcome to pip's midnight nursery &#9733; best viewed while sleepy &#9733; please do not whisper, pip hates silence &#9733; now with 100% more lullabies &#9733;</span></div>
+<nav>
+  <a href="#story">Story</a><a href="#lab">Lullaby Lab</a><a href="#lights">Nightlights</a><a href="#chart">Growth Chart</a><a href="#hello">Say hi</a>
+  <button id="snd" aria-pressed="false">Sound: off</button>
+  <button id="dn" aria-pressed="false">Night mode</button>
+</nav>
+<main>
+<section class="hero">
+  <div class="pipwrap" id="pipwrap">
+    <div class="sticker tilt" id="tilt" role="button" tabindex="0" aria-label="Pip waving on a cloud. Tickle him.">
+      <img src="assets/pip_avatar_cloud.webp" width="720" height="876" alt="Pip, a baby with a skull face, glowing eyes and a starry nightcap, waving from a soft cloud">
+      <svg viewBox="0 0 896 1090" aria-hidden="true"><ellipse class="lid" cx="374" cy="435" rx="53" ry="54"/><ellipse class="lid" cx="542" cy="393" rx="52" ry="52"/><path class="lash" d="M338 442Q374 468 410 442M507 400Q542 426 577 400"/></svg>
+      <button id="nose" aria-label="Boop Pip's nose"></button>
+    </div>
+    <div class="bubble" id="bub">hehehe!</div><div class="zzz" aria-hidden="true">Zzz</div>
+  </div>
+  <div>
+    <h1>Hi! I'm Pip.</h1>
+    <p class="tag">I build the dreams you fall asleep inside.</p>
+    <p>Junior Dream Engineer at the Midnight Nursery. I make lullabies, nightlights and bedtime stories for the neighbourhood's little ghosts and creatures. Tickle me. Boop things. Please don't leave it quiet.</p>
+  </div>
+</section>
+
+<section id="story">
+  <h2>How I got here</h2>
+  <div class="two">
+    <div class="sticker"><img src="assets/pip_portrait.webp" width="600" height="901" loading="lazy" alt="Pip sitting on a cloud holding a glowing lantern and a unicorn music box"></div>
+    <div>
+      <div class="scene"><div class="ic" aria-hidden="true">&#127769;</div><div><h3>A lullaby fell off a cloud</h3><p>One very quiet night, the last note of the city's lullaby slipped out of the sky and landed in a knitted nightcap. The cap giggled. That was me.</p></div></div>
+      <div class="scene"><div class="ic" aria-hidden="true">&#128295;</div><div><h3>First day at the Nursery</h3><p>The Midnight Nursery hired me on the spot. Any baby who hates silence is a natural dream engineer. I got a tiny wrench and a lot of blankets.</p></div></div>
+      <div class="scene"><div class="ic" aria-hidden="true">&#127982;</div><div><h3>The neighbourhood</h3><p>Now I fly the rooftops with a lantern, delivering dreams to sleepy ghosts, night owls, and one grumpy teapot called Mr. Whistle.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <h2>The Lullaby Lab</h2>
+  <div class="two">
+    <div class="sticker" style="position:relative"><button class="box" id="box" aria-label="Wind the music box and play the lullaby"><img src="assets/pip_lullaby_box.webp" width="760" height="686" loading="lazy" alt="Pastel music box with a unicorn, a golden winding key and floating star chimes"></button></div>
+    <div>
+      <p>My very first music box. Tap the box to wind it, or play the star keys yourself. The notes are tuned so nothing can sound wrong. I tested this very thoroughly (I fell asleep twice).</p>
+      <div class="keys" id="keys" role="group" aria-label="Music box keys"></div>
+      <button class="btn" id="auto">Play lullaby</button>
+      <p id="hint" style="margin:1rem 0 0;opacity:.8"></p>
+    </div>
+  </div>
+</section>
+
+<section id="lights">
+  <h2>Nightlight Collection</h2>
+  <div class="two">
+    <div>
+      <p>The Crescent Sleepy lamp, in three glow settings. Tap the lamp to switch it on and the whole nursery goes to night. Tap again to wake everyone up.</p>
+      <div class="sw" id="sw" role="group" aria-label="Glow colour"></div>
+    </div>
+    <div class="sticker"><button class="lantern" id="lamp" aria-pressed="false" aria-label="Switch the nightlight on or off"><img src="assets/pip_dream_lantern.webp" width="760" height="678" loading="lazy" alt="Glowing crescent moon nightlight with a brass ring handle"></button></div>
+  </div>
+</section>
+
+<section id="chart">
+  <h2>Pip's Growth Chart</h2>
+  <p>Skills, measured the way my nursery measures everything: against the wall.</p>
+  <div class="wall" id="wall"></div>
+</section>
+
+<section id="hello">
+  <div class="letter">
+    <h2>Leave a note on my pillow</h2>
+    <p>Got a dream that needs engineering? A ghost who won't sleep? Write to <a href="mailto:pip@midnight-nursery.example">pip@midnight-nursery.example</a>. I reply before the moon moves.</p>
+  </div>
+</section>
+</main>
+<footer>Dreams delivered: <span class="odo" id="odo"></span> (your own deliveries, saved in this browser)
+<small>Credits: Pip's character, name, tagline and the four pictures (cloud portrait, studio portrait, music box, lantern) are the official haX.baby Track 1 Creator Asset Pack. Page design, code, story text, Web Audio sounds and the growth chart were written with help from Claude (Anthropic). Fonts: Fredoka and Nunito (Google Fonts, SIL OFL).</small></footer>
+
+<script>
+const $=s=>document.querySelector(s),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let ctx=null,on=false;const snd=$('#snd');
+snd.onclick=()=>{on=!on;snd.textContent='Sound: '+(on?'on':'off');snd.setAttribute('aria-pressed',on);if(on&&!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(on)ctx.resume();hint()};
+function ensureSound(){if(!on)snd.click()}
+function tone(f,t=0,d=1.4){if(!on||!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain(),n=ctx.currentTime+t;o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,n);g.gain.linearRampToValueAtTime(.25,n+.01);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g).connect(ctx.destination);o.start(n);o.stop(n+d)}
+function hint(){$('#hint').textContent=on?'':'It is very quiet in here. Turn sound on? I hate silence.'}hint();
+function say(t){const b=$('#bub');b.textContent=t;b.classList.add('on');clearTimeout(say.t);say.t=setTimeout(()=>b.classList.remove('on'),1600)}
+// music box + keys (pentatonic, can't sound wrong)
+const notes=[523.25,587.33,659.25,783.99,880,1046.5,1174.7,1318.5],keys=$('#keys');
+notes.forEach((f,i)=>{const b=document.createElement('button');b.textContent='\u2605';b.setAttribute('aria-label','Note '+(i+1));b.onclick=()=>{ensureSound();tone(f);flash(b)};keys.appendChild(b)});
+function flash(b){b.classList.add('hit');setTimeout(()=>b.classList.remove('hit'),180)}
+function puff(){if(calm)return;const n=document.createElement('span');n.className='note';n.textContent=['\u266A','\u266B','\u2605'][Math.random()*3|0];n.style.left=20+Math.random()*60+'%';n.style.top='35%';$('#box').parentNode.appendChild(n);setTimeout(()=>n.remove(),1400)}
+function lullaby(){ensureSound();const bs=[...keys.children],bx=$('#box');bx.classList.add('play');[0,2,4,2,0,2,4,5,4,2,1,0].forEach((n,i)=>setTimeout(()=>{tone(notes[n],0,1.6);flash(bs[n]);puff()},i*420));setTimeout(()=>bx.classList.remove('play'),12*420)}
+$('#auto').onclick=lullaby;$('#box').onclick=lullaby;
+// tilt toward pointer (touch fallback via pointerdown)
+const tilt=$('#tilt');
+function look(e){const r=tilt.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;tilt.style.setProperty('--ry',Math.max(-12,Math.min(12,x*28))+'deg');tilt.style.setProperty('--rx',Math.max(-8,Math.min(8,-y*20))+'deg')}
+addEventListener('pointermove',look);addEventListener('pointerdown',look);
+// giggle
+const lines=['hehehe!','teehee!','that tickles!','again!','hehe... zzz','oops, a hiccup'];let li=0;
+function giggle(){if($('#pipwrap').classList.contains('asleep'))return;const w=$('#pipwrap');say(lines[li++%lines.length]);w.classList.remove('giggle');void w.offsetWidth;w.classList.add('giggle');tone(880,0,.2);tone(1046.5,.12,.2);tone(1318.5,.24,.3)}
+tilt.onclick=giggle;tilt.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();giggle()}};
+// easter egg: boop the nose 3 times, Pip falls asleep (boop to wake)
+let boops=0;$('#nose').onclick=e=>{e.stopPropagation();const w=$('#pipwrap');if(w.classList.contains('asleep')){w.classList.remove('asleep');boops=0;say("I wasn't sleeping!");return}boops++;if(boops>=3){boops=0;w.classList.add('asleep');say('...zzz...');ensureSound();[0,2,4,2,0].forEach((n,i)=>tone(notes[n]/2,i*.6,1.8))}else{say('boop!');tone(1200,0,.12)}};
+// day / night
+function night(v){const d=document.body.classList.toggle('night',v);$('#dn').setAttribute('aria-pressed',d);$('#dn').textContent=d?'Day mode':'Night mode';$('#lamp').classList.toggle('on',d);$('#lamp').setAttribute('aria-pressed',d);say(d?'Sleepy time... yawn':'Good morning! Wide awake!')}
+$('#dn').onclick=()=>night();$('#lamp').onclick=()=>{night();tone(document.body.classList.contains('night')?660:440,0,.5)};
+// glow colours
+[['Warm honey','#ffd77a'],['Strawberry milk','#ff9ec4'],['Lilac hush','#b9a2ff']].forEach(([n,c],i)=>{const b=document.createElement('button');b.textContent=n;b.style.background=c;b.setAttribute('aria-pressed',i==0);b.onclick=()=>{document.documentElement.style.setProperty('--glow',c);[...$('#sw').children].forEach(x=>x.setAttribute('aria-pressed',x===b))};$('#sw').appendChild(b)});
+// story reveal
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.4});document.querySelectorAll('.scene').forEach(s=>so.observe(s));
+// sparkle trail
+let lt=0;addEventListener('pointermove',e=>{const n=Date.now();if(calm||n-lt<70)return;lt=n;const s=document.createElement('span');s.className='trail';s.textContent=['\u2726','\u2605','\u2727'][Math.random()*3|0];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),1000)});
+// dreams delivered odometer
+let dc=1204;try{dc+=+localStorage.getItem('pipd')||0}catch(e){}
+function odo(){$('#odo').innerHTML=String(dc).padStart(5,'0').split('').map(c=>'<span>'+c+'</span>').join('')}odo();
+document.addEventListener('click',e=>{if(e.target.closest('#tilt,#box,#lamp,.keys button')){dc++;try{localStorage.setItem('pipd',dc-1204)}catch(x){}odo()}});
+// growth chart
+const S=[['Dream design',92],['Lullaby composing',85],['Nightlight wiring',70],['Not tripping on blankets',34],['Staying awake past 8pm',12]],wall=$('#wall');
+S.forEach(([n,v])=>wall.insertAdjacentHTML('beforeend','<div class="skill"><b><span>'+n+'</span><span>'+v+' cm</span></b><div class="bar"><i style="--w:'+v+'%" data-w="'+v+'"></i></div></div>'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){wall.querySelectorAll('i').forEach(i=>i.style.width=i.dataset.w+'%');io.disconnect()}}),{threshold:.3});io.observe(wall);
+</script>
+</body>
+</html>
